@@ -1,7 +1,6 @@
-let data = new Array(29);
+let data = new Array(24);
 data.fill('');
-// var data2 = 
-//     ["", "", "","", "", "","", "", "","", "", "","", "", "","", "", "","", "", "","", "", ""]
+
 function drawGarden (arr) {
   let container = document.querySelector(".main-grid");
   for (let i of data) { 
