@@ -19,6 +19,7 @@
     grid-template-rows: repeat(11, 1fr);
     grid-gap: 0px 0px;
     gap: 0px 0px;
+    
    
 }
 .cell {
@@ -27,4 +28,46 @@
     background-image: url(./images/ground.jpg);
     background-repeat: no-repeat;
     background-size: cover;
+    grid-column: 1 / span ;
+    grid-row: 11;
+}
+
+
+.sky{
+    background-color: rgb(119, 206, 246);
+}
+
+.ground{
+   background-image: url('./images/soil.jpg');
+   cursor: pointer;
+}
+
+.cloud{
+    background-image: url('./images/cloud.png');
+    cursor: pointer;
+}
+
+.grass{
+    background-image: url('./images/grass.png');
+    cursor: pointer;
+}
+
+.stone{
+    background-image: url('./images/rock.png');
+    cursor: pointer;
+}
+
+.wood{
+    background-image: url(./images/wood.png);
+    cursor: pointer;
+}
+
+.tree{
+    background-image: url('./images/tree.png');
+    cursor: pointer;
+}
+
+.leaf{
+    background-image: url('./images/leaf.png');
+    cursor: pointer;
 }
