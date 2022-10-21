@@ -93,6 +93,31 @@ const container = document.querySelector('.main-grid');
 
 const game = document.querySelector('.right-div');
 
+let height =20;
+let width =15;
+let count = 0;
+let treeCounter = document.querySelector('.tree-counter');
+
+
+function createGrid(height, width) {
+    container.setAttribute(
+      "style",
+      `grid-template: repeat(${height}, 1fr) / repeat(${width}, 1fr);`
+    );
+  
+    for (let i = 0; i < height; i++) {
+      for (let j = 0; j < width; j++) {
+        let element = document.createElement("div");
+        element.innerText = "";
+        element.setAttribute("id", `cell${i}-${j}`);
+        element.setAttribute("class", "grid-item");
+        container.append(element);
+        // console.log(`hi i am gr${i}-${j}`);
+      }
+    }
+  }
+  createGrid(height, width);
+
 let inventory ={
    rowTemp: 20,
    colTemp: 15,
@@ -105,20 +130,20 @@ let inventory ={
    grass:'grass',
    leaf:'leaf'
 }
-intializeGame()
-function intializeGame(){
-   for(let i = 0;i< inventory.rowTemp;i++){
-      for(let k = 0;k< inventory.colTemp;k++){
-         // container.style.display='grid';
-         // container.style.gridTemplate=`repeat(${inventory.rowTemp},1fr) / repeat(${inventory.colTemp},1fr)`
-         let div = document.createElement('div');
-         div.setAttribute('id',`cell${i}-${k}`)
-         div.setAttribute('class','cell')
-         // div.innerHTML = '';
-         container.appendChild(div)
-      }
-   } 
-}
+// intializeGame()
+// function intializeGame(){
+//    for(let i = 0;i< inventory.rowTemp;i++){
+//       for(let k = 0;k< inventory.colTemp;k++){
+//          // container.style.display='grid';
+//          // container.style.gridTemplate=`repeat(${inventory.rowTemp},1fr) / repeat(${inventory.colTemp},1fr)`
+//          let div = document.createElement('div');
+//          div.setAttribute('id',`cell${i}-${k}`)
+//          div.setAttribute('class','cell')
+//          // div.innerHTML = '';
+//          container.appendChild(div)
+//       }
+//    } 
+// }
 function fillCells(){
    for(let k = 0;k< container.children.length;k++){
       let [i,j] = container.children[k].getAttribute('id').slice(4).split('-');
@@ -160,6 +185,9 @@ fillCells()
 
 container.addEventListener('click',(event)=>{
    if(!event.target.getAttribute('class').includes('tree')){
-      event.target.setAttribute('class',inventory.tree);
+      event.target.setAttribute('class',inventory.sky);
+      count++
+      treeCounter.innerHTML=count;
+
    }
 })
