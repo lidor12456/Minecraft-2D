@@ -93,6 +93,8 @@ const container = document.querySelector('.main-grid');
 
 const game = document.querySelector('.right-div');
 
+//----------------COUNTERS SETTINGS----------------//
+
 let height =20;
 let width =15;
 let groundCount=0;
@@ -110,6 +112,36 @@ let treeCounter = document.querySelector('.tree-counter');
 let leafCounter = document.querySelector('.leaf-counter');
 
 
+
+//----------------TOOLS SETTINGS----------------//
+
+const tools = ['axe', 'pickaxe','shovel'];
+let currentTool = null;
+const axe = document.querySelector('.axe');
+const pickaxe = document.querySelector('.pickaxe');
+const shovel = document.querySelector('.shovel');
+
+axe.addEventListener('click', e => {
+    currentTool=axe;
+    axe.style.border = '1px solid red'
+    pickaxe.style.border = '1px solid white'
+    shovel.style.border = '1px solid white'
+})
+pickaxe.addEventListener('click', e => {
+    currentTool=pickaxe;
+    axe.style.border = '1px solid white'
+    pickaxe.style.border = '1px solid red'
+    shovel.style.border = '1px solid white'
+})
+shovel.addEventListener('click', e => {
+    currentTool=shovel;
+    axe.style.border = '1px solid white'
+    pickaxe.style.border = '1px solid white'
+    shovel.style.border = '1px solid red'
+})
+
+
+//----------------DRAW THE GAME----------------//
 function createGrid(height, width) {
     container.setAttribute(
       "style",
@@ -140,20 +172,7 @@ let inventory ={
    grass:'grass',
    leaf:'leaf'
 }
-// intializeGame()
-// function intializeGame(){
-//    for(let i = 0;i< inventory.rowTemp;i++){
-//       for(let k = 0;k< inventory.colTemp;k++){
-//          // container.style.display='grid';
-//          // container.style.gridTemplate=`repeat(${inventory.rowTemp},1fr) / repeat(${inventory.colTemp},1fr)`
-//          let div = document.createElement('div');
-//          div.setAttribute('id',`cell${i}-${k}`)
-//          div.setAttribute('class','cell')
-//          // div.innerHTML = '';
-//          container.appendChild(div)
-//       }
-//    } 
-// }
+
 function fillCells(){
    for(let k = 0;k< container.children.length;k++){
       let [i,j] = container.children[k].getAttribute('id').slice(4).split('-');
@@ -187,42 +206,36 @@ function fillGrass(i,j,k){
    }
 }
 
-
-
-
 fillCells()
 
-
+//----------------PICKUP ELEMENTS----------------//
 container.addEventListener('click',(event)=>{
 
-   if(event.target.getAttribute('class').includes('ground')){
+   if(event.target.getAttribute('class').includes('ground')&& currentTool==shovel){
       event.target.setAttribute('class',inventory.sky);
       updateGroundCounter(groundCounter);}
 
-   if(event.target.getAttribute('class').includes('grass')){
+   if(event.target.getAttribute('class').includes('grass')&& currentTool==shovel){
       event.target.setAttribute('class',inventory.sky);
       updateGrassCounter(grassCounter);}
 
-   if(event.target.getAttribute('class').includes('stone')){
+   if(event.target.getAttribute('class').includes('stone')&& currentTool==pickaxe){
       event.target.setAttribute('class',inventory.sky);
       updateStoneCounter(stoneCounter);}
 
-   if(event.target.getAttribute('class').includes('wood')){
+   if(event.target.getAttribute('class').includes('wood') && currentTool==axe){
       event.target.setAttribute('class',inventory.sky);
       updateWoodCounter(woodCounter);}
 
-   if(event.target.getAttribute('class').includes('tree')){
+   if(event.target.getAttribute('class').includes('tree')&& currentTool==axe){
       event.target.setAttribute('class',inventory.sky);
       updateTreeCounter(treeCounter);}
 
-   if(event.target.getAttribute('class').includes('leaf')){
+   if(event.target.getAttribute('class').includes('leaf')&& currentTool==axe){
       event.target.setAttribute('class',inventory.sky);
       updateLeafCounter(leafCounter);}
-      //   count++
-    //   treeCounter.innerHTML=count;
-      
 
-
+    
    
 })
 function updateGroundCounter (string) {
