@@ -95,8 +95,19 @@ const game = document.querySelector('.right-div');
 
 let height =20;
 let width =15;
-let count = 0;
+let groundCount=0;
+let grassCount=0;
+let stoneCount=0;
+let woodCount=0;
+let treeCount=0;
+let leafCount=0;
+
+let groundCounter = document.querySelector('.ground-counter');
+let grassCounter = document.querySelector('.grass-counter');
+let stoneCounter = document.querySelector('.stone-counter');
+let woodCounter = document.querySelector('.wood-counter');
 let treeCounter = document.querySelector('.tree-counter');
+let leafCounter = document.querySelector('.leaf-counter');
 
 
 function createGrid(height, width) {
@@ -112,7 +123,6 @@ function createGrid(height, width) {
         element.setAttribute("id", `cell${i}-${j}`);
         element.setAttribute("class", "grid-item");
         container.append(element);
-        // console.log(`hi i am gr${i}-${j}`);
       }
     }
   }
@@ -184,10 +194,59 @@ fillCells()
 
 
 container.addEventListener('click',(event)=>{
-   if(!event.target.getAttribute('class').includes('tree')){
-      event.target.setAttribute('class',inventory.sky);
-      count++
-      treeCounter.innerHTML=count;
 
-   }
+   if(event.target.getAttribute('class').includes('ground')){
+      event.target.setAttribute('class',inventory.sky);
+      updateGroundCounter(groundCounter);}
+
+   if(event.target.getAttribute('class').includes('grass')){
+      event.target.setAttribute('class',inventory.sky);
+      updateGrassCounter(grassCounter);}
+
+   if(event.target.getAttribute('class').includes('stone')){
+      event.target.setAttribute('class',inventory.sky);
+      updateStoneCounter(stoneCounter);}
+
+   if(event.target.getAttribute('class').includes('wood')){
+      event.target.setAttribute('class',inventory.sky);
+      updateWoodCounter(woodCounter);}
+
+   if(event.target.getAttribute('class').includes('tree')){
+      event.target.setAttribute('class',inventory.sky);
+      updateTreeCounter(treeCounter);}
+
+   if(event.target.getAttribute('class').includes('leaf')){
+      event.target.setAttribute('class',inventory.sky);
+      updateLeafCounter(leafCounter);}
+      //   count++
+    //   treeCounter.innerHTML=count;
+      
+
+
+   
 })
+function updateGroundCounter (string) {
+    groundCount++;
+    string.innerHTML=groundCount;
+}
+function updateGrassCounter (string) {
+    grassCount++
+    string.innerHTML=grassCount;
+}
+function updateStoneCounter (string) {
+    stoneCount++;
+    string.innerHTML=stoneCount;
+}
+function updateWoodCounter (string) {
+    woodCount++;
+    string.innerHTML=woodCount;
+}
+function updateTreeCounter (string) {
+    treeCount++;
+    string.innerHTML=treeCount;
+}
+function updateLeafCounter (string) {
+    leafCount++;
+    string.innerHTML=leafCount;
+}
+
