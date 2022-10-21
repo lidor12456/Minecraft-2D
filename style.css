@@ -1,3 +1,12 @@
+@font-face{
+    src: url('../fonts/Minecrafter.Reg.ttf');
+    font-family: minecraft;
+}
+
+body {
+    font-family: minecraft;
+}
+
 .game-board {
     display: flex;
     justify-content: center;
@@ -8,11 +17,7 @@
     width : 85%;
     background-color: white;
 }
-.right-div {
-    height: 100vh;
-    width : 15%;
-    background-color: rgb(30, 35, 35);
-}
+
 .main-grid{
     display: grid;
     grid-template-columns: repeat(24, 1fr);
@@ -31,6 +36,114 @@
     grid-column: 1 / span ;
     grid-row: 11;
 }
+
+.right-div {
+    height: 100vh;
+    width : 15%;
+    background-color: rgb(30, 35, 35);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* justify-content: space-between; */
+}
+
+.axe, .pickaxe, .shovel {
+    height: 8%;
+    width: 60%;
+    margin: 4%;
+    background-color: transparent;
+    border: 1px solid white;
+}
+.axe {
+    margin-top: 20%;
+}
+ .axe img {
+height: 90%; 
+margin-left: 40%;   
+}
+ .pickaxe  img {
+    height: 90%; 
+    margin-left: 40%;    
+}
+ .shovel img {
+    height: 90%; 
+    margin-left: 40%;    
+}
+
+.inventory {
+    /* width: 70%; */
+    margin-top: 5%;
+    margin-bottom: 20%;
+    display: grid;
+    grid-template-columns: auto auto;
+    grid-template-rows: auto auto auto;
+    /* justify-content: space-between; */
+
+
+}
+
+.ground-counter, .grass-counter, .stone-counter, .wood-counter, .tree-counter, .leaf-counter {
+    height: 45px;
+    width: 45px;
+    border: 1px solid white;
+    color: white;
+    text-align: center;
+    font-size: 30px;
+    margin: 5px;
+}
+
+.ground-counter {
+    background-image: url(./images/ground.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+
+}
+.grass-counter {
+    background-image: url(./images/grass.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+
+}
+.stone-counter {
+    background-image: url(./images/stone.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+
+}
+.wood-counter {
+    background-image: url(./images/wood.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+
+}
+.tree-counter {
+    background-image: url(./images/tree.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+
+}
+.leaf-counter {
+    background-image: url(./images/leaf.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+
+}
+
+button {
+    width: 85%;
+    color: white;
+    background-color: transparent;
+    border: 1px solid white;
+    padding: 15px 0;
+    margin: 10px;
+    text-align: center;
+    font-size: 16px;
+    cursor: pointer;
+
+}
+
+
+
 
 
 .sky{
