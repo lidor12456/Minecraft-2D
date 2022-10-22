@@ -20,7 +20,8 @@ body {
 
 .main-grid{
     height: 100vh;
-
+    position: relative;
+    
     display: grid;
     /* grid-template: repeat( 20,1fr) / repeat(15,1fr); */
     /* grid-gap: 0px 0px;
@@ -148,6 +149,7 @@ margin-left: 40%;
 
 .sky{
     background-color: rgb(119, 206, 246);
+    cursor: pointer;
 }
 
 .ground{
@@ -183,4 +185,24 @@ margin-left: 40%;
 .leaf{
     background-image: url('./images/leaf.png');
     cursor: pointer;
+}
+
+.main-grid :hover{
+    content: '';
+    /* position: absolute; */
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    opacity: 0.4;
+    /* z-index: -1; */
+    border: 1px solid black;
+}
+
+/* ---------MEDIA QUERIES-------- */
+@media (max-width:1000px) {
+    .right-div {
+        width : 30%;
+
+    }
 }
