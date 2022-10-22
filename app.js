@@ -100,7 +100,7 @@ function fillCells(){
 }
 
 function fillcloud(i,j,k){
-    if(((i==0||i==1||i==0||i==0)&&j==2)||(i==0||i==1||i==0||i==0)&&j==13){
+    if(((i==0||i==1||i==0||i==0)&&j<5 &&j>1)||(i==0||i==1||i==0||i==0)&&j<30 &&j>21){
        container.children[k].classList.add(inventory.cloud);
     }
     
