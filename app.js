@@ -21,6 +21,8 @@ let woodCounter = document.querySelector('.wood-counter');
 let treeCounter = document.querySelector('.tree-counter');
 let leafCounter = document.querySelector('.leaf-counter');
 
+let choosenMaterial = null;
+
 
 
 //----------------TOOLS SETTINGS----------------//
@@ -164,21 +166,174 @@ container.addEventListener('click',(event)=>{
 
       //----------------ADD ELEMENTS----------------//
 
+    function drawGround() {
+        if (choosenMaterial == groundCounter ) {
+            groundCounter.style.border='1px solid red';
+            grassCounter.style.border='1px solid white';
+            treeCounter.style.border='1px solid white';
+            leafCounter.style.border='1px solid white';
+            woodCounter.style.border='1px solid white';
+            stoneCounter.style.border='1px solid white';
+            
+        container.addEventListener('click',(event)=>{
+            if (groundCounter.innerHTML>0){
+            if((!event.target.getAttribute('class').includes('tree'))&&
+            (!event.target.getAttribute('class').includes('leaf'))&&
+            (!event.target.getAttribute('class').includes('stone'))&&
+            (!event.target.getAttribute('class').includes('grass'))&&
+            (!event.target.getAttribute('class').includes('cloud')))
+              {
+                event.target.setAttribute('class',inventory.ground);
+                groundCount--;
+
+                groundCounter.innerHTML=groundCount;
+            } 
+        }
+        })
+    
+        }
 
 
-//     groundCounter.addEventListener('click',(event)=>{
-//         drawGround()
-//     })
-//     function drawGround() {
-//         groundCounter.style.border='1px solid red';
+}
+groundCounter.addEventListener ('click', e => {
+    choosenMaterial=groundCounter;
+    drawGround();
+   
+})
+    function drawGrass() {
+        if (choosenMaterial == grassCounter ) {
+            groundCounter.style.border='1px solid white';
+            grassCounter.style.border='1px solid red';
+            treeCounter.style.border='1px solid white';
+            leafCounter.style.border='1px solid white';
+            woodCounter.style.border='1px solid white';
+            stoneCounter.style.border='1px solid white';
+        container.addEventListener('click',(event)=>{
+            if (grassCounter.innerHTML>0){
+            if((!event.target.getAttribute('class').includes('tree'))&&
+            (!event.target.getAttribute('class').includes('leaf'))&&
+            (!event.target.getAttribute('class').includes('stone'))&&
+            (!event.target.getAttribute('class').includes('ground'))&&
+            (!event.target.getAttribute('class').includes('cloud')))
+              {
+                event.target.setAttribute('class',inventory.grass);
+                grassCount--;
+
+                grassCounter.innerHTML=grassCount;
+            } 
+        }
+        })
+    
+        }
+
+}
+grassCounter.addEventListener ('click', e => {
+    choosenMaterial=grassCounter;
+    drawGrass();
+    
+   
+})
+    function drawTree() {
+        if (choosenMaterial == treeCounter ) {
+            groundCounter.style.border='1px solid white';
+            grassCounter.style.border='1px solid white';
+            treeCounter.style.border='1px solid red';
+            leafCounter.style.border='1px solid white';
+            woodCounter.style.border='1px solid white';
+            stoneCounter.style.border='1px solid white';
+        container.addEventListener('click',(event)=>{
+            if (treeCounter.innerHTML>0){
+            if((!event.target.getAttribute('class').includes('grass'))&&
+            (!event.target.getAttribute('class').includes('leaf'))&&
+            (!event.target.getAttribute('class').includes('stone'))&&
+            (!event.target.getAttribute('class').includes('ground'))&&
+            (!event.target.getAttribute('class').includes('cloud')))
+              {
+                event.target.setAttribute('class',inventory.tree);
+                treeCount--;
+
+                treeCounter.innerHTML=treeCount;
+            } 
+        }
+        })
+    
+        }
+
+}
+treeCounter.addEventListener ('click', e => {
+    choosenMaterial=treeCounter;
+    drawTree();
+    
+   
+})
+    function drawLeaf() {
+        if (choosenMaterial == leafCounter ) {
+            groundCounter.style.border='1px solid white';
+            grassCounter.style.border='1px solid white';
+            treeCounter.style.border='1px solid white';
+            leafCounter.style.border='1px solid red';
+            woodCounter.style.border='1px solid white';
+            stoneCounter.style.border='1px solid white';
+        container.addEventListener('click',(event)=>{
+            if (leafCounter.innerHTML>0){
+            if((!event.target.getAttribute('class').includes('grass'))&&
+            (!event.target.getAttribute('class').includes('tree'))&&
+            (!event.target.getAttribute('class').includes('stone'))&&
+            (!event.target.getAttribute('class').includes('ground'))&&
+            (!event.target.getAttribute('class').includes('cloud')))
+              {
+                event.target.setAttribute('class',inventory.leaf);
+                leafCount--;
+
+                leafCounter.innerHTML=leafCount;
+            } 
+        }
+        })
+    
+        }
+
+}
+leafCounter.addEventListener ('click', e => {
+    choosenMaterial=leafCounter;
+    drawLeaf();
+    
+   
+})
+    function drawStone() {
+        if (choosenMaterial == stoneCounter ) {
+            groundCounter.style.border='1px solid white';
+            grassCounter.style.border='1px solid white';
+            treeCounter.style.border='1px solid white';
+            leafCounter.style.border='1px solid white';
+            woodCounter.style.border='1px solid white';
+            stoneCounter.style.border='1px solid red';
+        container.addEventListener('click',(event)=>{
+            if (stoneCounter.innerHTML>0){
+            if((!event.target.getAttribute('class').includes('grass'))&&
+            (!event.target.getAttribute('class').includes('tree'))&&
+            (!event.target.getAttribute('class').includes('leaf'))&&
+            (!event.target.getAttribute('class').includes('ground'))&&
+            (!event.target.getAttribute('class').includes('cloud')))
+              {
+                event.target.setAttribute('class',inventory.stone);
+                stoneCount--;
+
+                stoneCounter.innerHTML=stoneCount;
+            } 
+        }
+        })
+    
+        }
+
+}
+stoneCounter.addEventListener ('click', e => {
+    choosenMaterial=stoneCounter;
+    drawStone();
+    
+   
+})
 
 
-// }
-// container.addEventListener('click',(event)=>{
-// if ((groundCount!=0)){
-// console.log('im ground');
-// }            
-// }) 
 
 
  
